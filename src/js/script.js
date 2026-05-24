@@ -59,6 +59,11 @@ if(cards){
                         R$ ${produto.preco.toFixed(2)}
                     </p>
 
+                        <button class="btn-comprar">
+                            Comprar
+                        </button>
+                    </div>
+
                 </div>
 
             </div>
@@ -97,6 +102,14 @@ if(listaCarrinho){
 
         listaCarrinho.innerHTML += `
 
+         <div class="item-carrinho fade-up">
+
+        <img
+        src="../src/assets/img/granito1.jpg"
+        class="img-carrinho">
+
+        <div>
+
             <div class="item-carrinho fade-up">
 
                 <h3>${item.nome}</h3>
@@ -104,6 +117,8 @@ if(listaCarrinho){
                 <p>Preço: R$ ${item.preco.toFixed(2)}</p>
 
             </div>
+            
+        </div>
 
         `;
     });

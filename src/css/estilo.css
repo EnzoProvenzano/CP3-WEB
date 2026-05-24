@@ -333,3 +333,25 @@ footer{
     opacity: 1;
     transform: translateY(0);
 }
+
+/* BOTÃO COMPRAR */
+
+.btn-comprar{
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* IMAGEM DO CARRINHO */
+
+.item-carrinho{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.img-carrinho{
+    width: 120px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 12px;
+}
