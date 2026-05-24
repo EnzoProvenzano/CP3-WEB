@@ -2,60 +2,120 @@ const produtos = [
     {
         nome: "Granito Preto São Gabriel",
         descricao: "Elegância e resistência para cozinhas.",
-        preco: "R$ 899,90",
+        preco: 899.90,
         imagem: "./src/assets/img/granito1.jpg"
     },
 
     {
         nome: "Mármore Branco Prime",
         descricao: "Sofisticação para ambientes internos.",
-        preco: "R$ 1.299,90",
+        preco: 1299.90,
         imagem: "./src/assets/img/marmore1.jpg"
     },
 
     {
         nome: "Granito Cinza Andorinha",
         descricao: "Excelente custo benefício.",
-        preco: "R$ 749,90",
+        preco: 749.90,
         imagem: "./src/assets/img/granito2.jpg"
     },
 
     {
         nome: "Mármore Travertino",
         descricao: "Visual moderno e refinado.",
-        preco: "R$ 1.499,90",
+        preco: 1499.90,
         imagem: "./src/assets/img/marmore2.jpg"
     },
 
     {
         nome: "Granito Branco Dallas",
         descricao: "Ideal para áreas gourmet.",
-        preco: "R$ 999,90",
+        preco: 999.90,
         imagem: "./src/assets/img/granito3.jpg"
     }
 ];
 
 const cards = document.getElementById("cards");
 
-produtos.forEach(produto => {
+if(cards){
 
-    cards.innerHTML += `
+    produtos.forEach(produto => {
 
-        <div class="card">
+        cards.innerHTML += `
 
-            <img src="${produto.imagem}" alt="${produto.nome}">
+            <div class="card">
 
-            <div class="card-content">
+                <img src="${produto.imagem}" alt="${produto.nome}">
 
-                <h3>${produto.nome}</h3>
+                <div class="card-content">
 
-                <p>${produto.descricao}</p>
+                    <h3>${produto.nome}</h3>
 
-                <p class="preco">${produto.preco}</p>
+                    <p>${produto.descricao}</p>
+
+                    <p class="preco">
+                        R$ ${produto.preco.toFixed(2)}
+                    </p>
+
+                </div>
 
             </div>
 
-        </div>
+        `;
+    });
+}
 
-    `;
-});
+const carrinho = [
+    {
+        nome: "Granito Preto São Gabriel",
+        preco: 899.90
+    },
+
+    {
+        nome: "Mármore Branco Prime",
+        preco: 1299.90
+    },
+
+    {
+        nome: "Granito Branco Dallas",
+        preco: 999.90
+    }
+];
+
+const listaCarrinho = document.getElementById("lista-carrinho");
+const totalElemento = document.getElementById("total");
+const btnDesconto = document.getElementById("btnDesconto");
+
+if(listaCarrinho){
+
+    carrinho.forEach(item => {
+
+        listaCarrinho.innerHTML += `
+
+            <div class="item-carrinho">
+
+                <h3>${item.nome}</h3>
+
+                <p>Preço: R$ ${item.preco.toFixed(2)}</p>
+
+            </div>
+
+        `;
+    });
+
+    let total = carrinho.reduce((acumulador, item) => {
+        return acumulador + item.preco;
+    }, 0);
+
+    totalElemento.textContent = `R$ ${total.toFixed(2)}`;
+
+    btnDesconto.addEventListener("click", () => {
+
+        let desconto = total * 0.10;
+
+        let totalFinal = total - desconto;
+
+        totalElemento.textContent =
+            `R$ ${totalFinal.toFixed(2)}`;
+    });
+}
