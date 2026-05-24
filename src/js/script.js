@@ -1,39 +1,41 @@
 const produtos = [
     {
         nome: "Granito Preto São Gabriel",
-        descricao: "Elegância e resistência para cozinhas.",
+        descricao: "Elegância e resistência para cozinhas premium.",
         preco: 899.90,
         imagem: "./src/assets/img/granito1.jpg"
     },
 
     {
         nome: "Mármore Branco Prime",
-        descricao: "Sofisticação para ambientes internos.",
+        descricao: "Sofisticação e luxo para ambientes internos.",
         preco: 1299.90,
         imagem: "./src/assets/img/marmore1.jpg"
     },
 
     {
         nome: "Granito Cinza Andorinha",
-        descricao: "Excelente custo benefício.",
+        descricao: "Excelente acabamento e custo benefício.",
         preco: 749.90,
         imagem: "./src/assets/img/granito2.jpg"
     },
 
     {
         nome: "Mármore Travertino",
-        descricao: "Visual moderno e refinado.",
+        descricao: "Visual moderno e acabamento refinado.",
         preco: 1499.90,
         imagem: "./src/assets/img/marmore2.jpg"
     },
 
     {
         nome: "Granito Branco Dallas",
-        descricao: "Ideal para áreas gourmet.",
+        descricao: "Ideal para áreas gourmet sofisticadas.",
         preco: 999.90,
         imagem: "./src/assets/img/granito3.jpg"
     }
 ];
+
+/* HOME - CARDS */
 
 const cards = document.getElementById("cards");
 
@@ -43,7 +45,7 @@ if(cards){
 
         cards.innerHTML += `
 
-            <div class="card">
+            <div class="card fade-up">
 
                 <img src="${produto.imagem}" alt="${produto.nome}">
 
@@ -65,7 +67,10 @@ if(cards){
     });
 }
 
+/* CARRINHO */
+
 const carrinho = [
+
     {
         nome: "Granito Preto São Gabriel",
         preco: 899.90
@@ -92,7 +97,7 @@ if(listaCarrinho){
 
         listaCarrinho.innerHTML += `
 
-            <div class="item-carrinho">
+            <div class="item-carrinho fade-up">
 
                 <h3>${item.nome}</h3>
 
@@ -104,10 +109,13 @@ if(listaCarrinho){
     });
 
     let total = carrinho.reduce((acumulador, item) => {
+
         return acumulador + item.preco;
+
     }, 0);
 
-    totalElemento.textContent = `R$ ${total.toFixed(2)}`;
+    totalElemento.textContent =
+        `R$ ${total.toFixed(2)}`;
 
     btnDesconto.addEventListener("click", () => {
 
@@ -116,6 +124,54 @@ if(listaCarrinho){
         let totalFinal = total - desconto;
 
         totalElemento.textContent =
-            `R$ ${totalFinal.toFixed(2)}`;
+        `R$ ${totalFinal.toFixed(2)}`;
+
+        btnDesconto.innerText = "Desconto Aplicado";
+
+        btnDesconto.disabled = true;
+    });
+}
+
+/* ANIMAÇÕES */
+
+const elementos = document.querySelectorAll(".fade-up");
+
+function animarScroll(){
+
+    elementos.forEach((elemento) => {
+
+        const posicao =
+        elemento.getBoundingClientRect().top;
+
+        const tela = window.innerHeight - 100;
+
+        if(posicao < tela){
+
+            elemento.classList.add("show");
+        }
+    });
+}
+
+window.addEventListener("scroll", animarScroll);
+
+animarScroll();
+
+/* SOBRE */
+
+const tituloSobre =
+document.querySelector(".sobre h2");
+
+if(tituloSobre){
+
+    tituloSobre.addEventListener("mouseover", () => {
+
+        tituloSobre.style.color = "#00ff88";
+
+    });
+
+    tituloSobre.addEventListener("mouseout", () => {
+
+        tituloSobre.style.color = "white";
+
     });
 }
