@@ -115,3 +115,31 @@ button{
 button:hover{
     transform: scale(1.05);
 }
+.sobre{
+    padding: 50px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.sobre h2{
+    margin-bottom: 25px;
+    color: #1f1f1f;
+    font-size: 32px;
+}
+
+.sobre p{
+    margin-bottom: 20px;
+    line-height: 1.8;
+    font-size: 18px;
+    color: #333;
+}
+
+.mapa{
+    padding: 50px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.mapa h2{
+    margin-bottom: 20px;
+}
