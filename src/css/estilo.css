@@ -79,3 +79,39 @@ nav a{
     color: green;
     font-weight: bold;
 }
+.item-carrinho{
+    background-color: white;
+    padding: 20px;
+    margin-top: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
+}
+
+.total-box{
+    margin-top: 30px;
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
+}
+
+.total-box h3{
+    margin: 15px 0;
+    color: green;
+    font-size: 28px;
+}
+
+button{
+    padding: 12px 20px;
+    border: none;
+    background-color: #1f1f1f;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover{
+    transform: scale(1.05);
+}
